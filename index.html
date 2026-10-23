@@ -14,13 +14,20 @@ nav{position:sticky;top:0;z-index:10;background:#ffffffed;backdrop-filter:blur(1
 main{max-width:1120px;margin:30px auto 70px;padding:0 20px}.intro{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:24px 26px;box-shadow:var(--shadow);margin-bottom:22px}
 section{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:clamp(22px,4vw,36px);margin:22px 0;box-shadow:var(--shadow)}.sectionno{color:var(--teal);font-weight:800;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase}h2{font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.25;margin:5px 0 16px}h3{font-size:1.15rem;margin:24px 0 8px}p{margin:9px 0 14px}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.tile{border:1px solid var(--line);border-radius:14px;padding:18px;background:#fff}.tile h3{margin:0 0 7px}.formula{background:#f0f4ff;border-left:4px solid var(--blue);border-radius:10px;padding:15px 18px;margin:13px 0;font-size:1.05rem;overflow-x:auto}.formula strong{display:block;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);margin-bottom:4px}.note{background:#eafaf7;border:1px solid #c7f0e8;border-radius:12px;padding:14px 16px;margin:15px 0}.tablewrap{overflow-x:auto;margin:14px 0}table{border-collapse:collapse;width:100%;min-width:560px;font-size:.92rem}th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}th{background:#f1f4fb;color:#344054;font-weight:750}tbody tr:hover{background:#fafbff}.steps{counter-reset:step;list-style:none;padding:0}.steps li{counter-increment:step;position:relative;padding:3px 0 15px 42px}.steps li:before{content:counter(step);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--blue2);color:var(--blue);font-weight:800}.pill{display:inline-block;background:#f0f4ff;color:#3457d5;border-radius:7px;padding:2px 8px;font-size:.85rem;font-weight:700}footer{text-align:center;color:var(--muted);padding:25px;font-size:.9rem}
 @media(max-width:600px){header{padding:42px 20px}main{padding:0 12px;margin-top:16px}.intro{padding:20px}section{padding:20px 16px}nav a{padding:7px 9px}}
+
+.exercise-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:18px}
+.exercise-card{border:1px solid var(--line);border-radius:15px;background:#fff;padding:18px;text-align:left;cursor:pointer;color:var(--ink);font:inherit;transition:transform .15s,border-color .15s;box-shadow:0 5px 18px #18284b08}
+.exercise-card:hover{transform:translateY(-2px);border-color:var(--blue)}.exercise-card strong{display:block;font-size:1.08rem;color:var(--blue);margin-bottom:6px}.exercise-card span{color:var(--muted);font-size:.92rem}
+.modal-backdrop{position:fixed;inset:0;background:#111827a8;z-index:100;display:none;align-items:center;justify-content:center;padding:18px}.modal-backdrop.open{display:flex}.exercise-modal{background:#fff;width:min(900px,100%);max-height:92vh;overflow:auto;border-radius:18px;padding:clamp(18px,3vw,30px);box-shadow:0 24px 80px #0004;position:relative}.modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;position:sticky;top:-1px;background:#fff;padding:0 0 12px;z-index:2;border-bottom:1px solid var(--line)}.modal-head h2{margin:0;font-size:1.45rem}.close-modal{border:0;border-radius:9px;background:#f1f4fb;padding:8px 12px;cursor:pointer;font-size:1.1rem}.prompt-image{display:block;width:100%;height:auto;max-height:45vh;object-fit:contain;background:#f8fafc;border:1px solid var(--line);border-radius:12px;margin:16px 0}.answer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-top:16px}.answer-field{display:flex;flex-direction:column;gap:5px;font-weight:650}.answer-field input{width:100%;padding:11px 12px;border:1px solid #cbd5e1;border-radius:9px;font:inherit}.answer-field input:focus{outline:2px solid #c7d2fe;border-color:var(--blue)}.check-answer{margin-top:16px;border:0;border-radius:10px;background:var(--blue);color:#fff;padding:11px 18px;font:inherit;font-weight:750;cursor:pointer}.feedback{margin-top:14px;border-radius:10px;padding:12px 14px;font-weight:750;display:none}.feedback.show{display:block}.feedback.correct{background:#e7f8ee;color:#176534;border:1px solid #b8e6c8}.feedback.wrong{background:#fff0f0;color:#a12626;border:1px solid #f3c3c3}.modal-note{color:var(--muted);font-size:.9rem}
+@media(max-width:600px){.modal-backdrop{padding:8px}.exercise-modal{max-height:96vh;border-radius:14px}.answer-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
-<header><div class="hero"><div class="eyebrow">สถิติ · บทที่ 2</div><h1>การแจกแจง<br>ความถี่</h1><p>เว็บไซต์บทเรียนเรื่องการจัดระเบียบข้อมูล การวัดค่ากลาง การวัดตำแหน่ง และการวัดการกระจายของข้อมูล</p><span class="tag">สรุปบทเรียน · ยังไม่รวมแบบฝึกหัด</span></div></header>
-<nav><div class="navinner"><a href="#overview">ภาพรวม</a><a href="#frequency">การแจกแจงความถี่</a><a href="#central">การวัดค่ากลาง</a><a href="#position">การวัดตำแหน่ง</a><a href="#dispersion">การวัดการกระจาย</a><a href="#example1">Example 1</a><a href="#example2">Example 2</a><a href="#example3">Example 3</a></div></nav>
+<header><div class="hero"><div class="eyebrow">สถิติ · บทที่ 2</div><h1>การแจกแจง<br>ความถี่</h1><p>เว็บไซต์บทเรียนเรื่องการจัดระเบียบข้อมูล การวัดค่ากลาง การวัดตำแหน่ง และการวัดการกระจายของข้อมูล</p><span class="tag">บทเรียนพร้อมแบบฝึกหัด 3 ข้อ</span></div></header>
+<nav><div class="navinner"><a href="#overview">ภาพรวม</a><a href="#frequency">การแจกแจงความถี่</a><a href="#central">การวัดค่ากลาง</a><a href="#position">การวัดตำแหน่ง</a><a href="#dispersion">การวัดการกระจาย</a><a href="#exercise1">แบบฝึกหัดที่ 1</a><a href="#exercise2">แบบฝึกหัดที่ 2</a><a href="#exercise3">แบบฝึกหัดที่ 3</a></div></nav>
 <main>
-<div class="intro"><span class="pill">บทเรียน</span><h2>เนื้อหาที่จะได้เรียนรู้</h2><p>เว็บไซต์นี้เรียบเรียงเนื้อหาจากไฟล์ต้นฉบับเป็น 5 หัวข้อ โดยเว้นส่วนแบบฝึกหัดและแบบทดสอบไว้ก่อน เพื่อเพิ่มในภายหลัง</p><div class="grid"><div class="tile"><h3>01 · ข้อมูล</h3><p class="muted">ทำความเข้าใจข้อมูลเชิงปริมาณและข้อมูลเชิงคุณภาพ</p></div><div class="tile"><h3>02 · ความถี่</h3><p class="muted">จัดข้อมูลเป็นชั้นและสรุปจำนวนความถี่</p></div><div class="tile"><h3>03 · ค่ากลาง</h3><p class="muted">ค่าเฉลี่ย มัธยฐาน และฐานนิยม</p></div><div class="tile"><h3>04 · ตำแหน่ง</h3><p class="muted">ควอร์ไทล์ เดไซล์ และเปอร์เซ็นไทล์</p></div><div class="tile"><h3>05 · การกระจาย</h3><p class="muted">พิสัย ส่วนเบี่ยงเบนควอร์ไทล์ ส่วนเบี่ยงเบนเฉลี่ย และส่วนเบี่ยงเบนมาตรฐาน</p></div></div></div>
+<div class="intro"><span class="pill">บทเรียน</span><h2>เนื้อหาที่จะได้เรียนรู้</h2><p>เว็บไซต์นี้เรียบเรียงเนื้อหาจากไฟล์ต้นฉบับเป็น 5 หัวข้อ พร้อมแบบฝึกหัดให้ลองทำ โดยกดเลือกข้อเพื่อเปิดโจทย์และกรอกคำตอบ</p><div class="grid"><div class="tile"><h3>01 · ข้อมูล</h3><p class="muted">ทำความเข้าใจข้อมูลเชิงปริมาณและข้อมูลเชิงคุณภาพ</p></div><div class="tile"><h3>02 · ความถี่</h3><p class="muted">จัดข้อมูลเป็นชั้นและสรุปจำนวนความถี่</p></div><div class="tile"><h3>03 · ค่ากลาง</h3><p class="muted">ค่าเฉลี่ย มัธยฐาน และฐานนิยม</p></div><div class="tile"><h3>04 · ตำแหน่ง</h3><p class="muted">ควอร์ไทล์ เดไซล์ และเปอร์เซ็นไทล์</p></div><div class="tile"><h3>05 · การกระจาย</h3><p class="muted">พิสัย ส่วนเบี่ยงเบนควอร์ไทล์ ส่วนเบี่ยงเบนเฉลี่ย และส่วนเบี่ยงเบนมาตรฐาน</p></div></div></div>
 
 <section id="overview"><div class="sectionno">หัวข้อ 01</div><h2>ภาพรวมของข้อมูลและการวิเคราะห์</h2><p>สถิติเป็นศาสตร์ที่เกี่ยวข้องกับการเก็บรวบรวม การนำเสนอ และการวิเคราะห์ข้อมูล เพื่อนำไปสร้างสารสนเทศที่เป็นประโยชน์ต่อการตัดสินใจ</p><div class="grid"><div class="tile"><h3>ข้อมูลเชิงปริมาณ</h3><p>ข้อมูลที่แสดงเป็นตัวเลขและสามารถวัดได้ เช่น ส่วนสูงหรือคะแนนสอบ แบ่งเป็นข้อมูลแบบ <b>ต่อเนื่อง</b> และ <b>ไม่ต่อเนื่อง</b></p></div><div class="tile"><h3>ข้อมูลเชิงคุณภาพ</h3><p>ข้อมูลที่แสดงลักษณะหรือคุณสมบัติซึ่งไม่ใช่ตัวเลข เช่น เพศหรือระดับความพึงพอใจ โดยอาจกำหนดเป็นตัวเลขเพื่อใช้ในการวิเคราะห์ได้</p></div><div class="tile"><h3>การวิเคราะห์ข้อมูลเชิงปริมาณ</h3><p>ใช้วิธีการทางสถิติในการวิเคราะห์ข้อมูลตัวเลข ประกอบด้วยสถิติเชิงพรรณนาและสถิติเชิงอนุมาน</p></div><div class="tile"><h3>การวิเคราะห์ข้อมูลเชิงคุณภาพ</h3><p>มุ่งศึกษากระบวนการทางสังคม มิติทางวัฒนธรรม และความสัมพันธ์ระหว่างปรากฏการณ์กับสภาพแวดล้อม</p></div></div></section>
 
@@ -88,5 +95,83 @@ section{background:var(--paper);border:1px solid var(--line);border-radius:18px;
 <div class="note"><b>สรุปคำตอบ Example 3</b><ul><li>คะแนนสูงสุด = 98; คะแนนต่ำสุด = 45; พิสัย = 53</li><li>จำนวนชั้น k = 6; ความกว้างชั้น I = 9</li><li>จำนวนข้อมูล Σfᵢ = 36</li><li>Σfᵢxᵢ = 2,646; Σfᵢxᵢ² = 200,898</li><li>ค่าเฉลี่ยจากตาราง x̄ = 73.50 คะแนน</li><li>มัธยฐานจากตาราง Me ≈ 73.75 คะแนน</li><li>ฐานนิยมจากตาราง Mo ≈ 71.50 คะแนน (มีชั้นความถี่สูงสุดเท่ากัน 2 ชั้นที่ติดกัน)</li><li>ส่วนเบี่ยงเบนมาตรฐานจากตาราง SD ≈ 13.35 คะแนน</li></ul><p>หมายเหตุ: ค่าสถิติใน Example 3 คำนวณจากข้อมูลที่จัดเป็นอันตรภาคชั้น โดยใช้จุดกึ่งกลางชั้น จึงเป็นค่าประมาณ</p></div>
 </section>
 
-</main><footer>สถิติ บทที่ 2 · การแจกแจงความถี่<br>เว็บไซต์บทเรียนที่เรียบเรียงจากไฟล์นำเสนอ พร้อมตัวอย่างประกอบ Example 1–3</footer>
+
+<section id="exercises"><div class="sectionno">แบบฝึกหัด</div><h2>ลองทำด้วยตัวเอง</h2><p>เลือกกล่องแบบฝึกหัดเพื่อเปิดภาพโจทย์ จากนั้นกรอกคำตอบแล้วกด “ตรวจคำตอบ” ระบบจะแจ้งเพียงว่าถูกหรือผิด โดยไม่มีคำใบ้หรือเฉลย</p>
+<div class="exercise-grid">
+<button class="exercise-card" id="exercise1" type="button" data-exercise="1"><strong>แบบฝึกหัดที่ 1</strong><span>พิสัย จำนวนชั้น ความกว้างชั้น ค่าเฉลี่ย และ SD</span></button>
+<button class="exercise-card" id="exercise2" type="button" data-exercise="2"><strong>แบบฝึกหัดที่ 2</strong><span>ควอไทล์และพิสัยระหว่างควอไทล์</span></button>
+<button class="exercise-card" id="exercise3" type="button" data-exercise="3"><strong>แบบฝึกหัดที่ 3</strong><span>ค่าเฉลี่ย มัธยฐาน และฐานนิยม</span></button>
+</div></section>
+<div class="modal-backdrop" id="exerciseModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+ <div class="exercise-modal"><div class="modal-head"><h2 id="modalTitle">แบบฝึกหัด</h2><button class="close-modal" id="closeModal" type="button" aria-label="ปิด">✕</button></div>
+ <img id="promptImage" class="prompt-image" src="Exm1.jpg" alt="ภาพโจทย์แบบฝึกหัด">
+ <p class="modal-note">กรอกคำตอบทุกช่อง แล้วกดตรวจคำตอบ</p><form id="answerForm"><div id="answerFields" class="answer-grid"></div><button class="check-answer" type="submit">ตรวจคำตอบ</button></form><div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+ </div>
+</div>
+<script>
+const exerciseConfig = {
+  1: { title: 'แบบฝึกหัดที่ 1', image: 'Exm1.jpg', fields: [
+    {label:'คะแนนสูงสุด', answer:99, tolerance:0},
+    {label:'คะแนนต่ำสุด', answer:43, tolerance:0},
+    {label:'พิสัย', answer:56, tolerance:0},
+    {label:'จำนวนชั้น', answer:6, tolerance:0},
+    {label:'ความกว้างอันตรภาคชั้น', answer:10, tolerance:0},
+    {label:'ค่าเฉลี่ยเลขคณิต', answer:73, tolerance:0.01},
+    {label:'ส่วนเบี่ยงเบนมาตรฐาน (SD)', answer:14.13, tolerance:0.01}
+  ]},
+  2: { title: 'แบบฝึกหัดที่ 2', image: 'Exm2.jpg', fields: [
+    {label:'ควอไทล์ที่ 1 (Q₁)', answer:46.42, tolerance:0.01},
+    {label:'ควอไทล์ที่ 2 (Q₂)', answer:58.39, tolerance:0.01},
+    {label:'ควอไทล์ที่ 3 (Q₃)', answer:71.17, tolerance:0.01},
+    {label:'พิสัยระหว่างควอไทล์ (IQR)', answer:24.74, tolerance:0.01}
+  ]},
+  3: { title: 'แบบฝึกหัดที่ 3', image: 'Exm3.jpg', fields: [
+    {label:'ค่าเฉลี่ยเลขคณิต (x̄)', min:66.00, max:66.99},
+    {label:'มัธยฐาน (Me)', min:66.00, max:66.99},
+    {label:'ฐานนิยม (Mo)', min:66.00, max:66.99}
+  ]}
+};
+const modal = document.getElementById('exerciseModal');
+const fieldsContainer = document.getElementById('answerFields');
+const form = document.getElementById('answerForm');
+const feedback = document.getElementById('feedback');
+let activeExercise = null;
+function openExercise(id){
+  activeExercise = exerciseConfig[id];
+  document.getElementById('modalTitle').textContent = activeExercise.title;
+  const img = document.getElementById('promptImage');
+  img.src = activeExercise.image;
+  img.alt = 'ภาพโจทย์ ' + activeExercise.title;
+  img.onerror = () => { img.alt = 'ไม่พบไฟล์ ' + activeExercise.image + ' — วางไฟล์ภาพไว้ในโฟลเดอร์เดียวกับ index.html'; };
+  fieldsContainer.innerHTML = '';
+  activeExercise.fields.forEach((field, index) => {
+    const label = document.createElement('label'); label.className = 'answer-field';
+    label.textContent = field.label;
+    const input = document.createElement('input'); input.type = 'number'; input.step = 'any'; input.required = true;
+    input.name = 'answer' + index; input.placeholder = 'กรอกคำตอบ'; input.setAttribute('aria-label', field.label);
+    label.appendChild(input); fieldsContainer.appendChild(label);
+  });
+  feedback.className = 'feedback'; feedback.textContent = '';
+  modal.classList.add('open'); document.body.style.overflow = 'hidden';
+}
+function closeExercise(){modal.classList.remove('open');document.body.style.overflow='';}
+document.querySelectorAll('[data-exercise]').forEach(button => button.addEventListener('click', () => openExercise(button.dataset.exercise)));
+document.getElementById('closeModal').addEventListener('click', closeExercise);
+modal.addEventListener('click', e => { if(e.target === modal) closeExercise(); });
+document.addEventListener('keydown', e => { if(e.key === 'Escape' && modal.classList.contains('open')) closeExercise(); });
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const inputs = [...fieldsContainer.querySelectorAll('input')];
+  const allCorrect = inputs.every((input, i) => {
+    const value = Number(input.value); const field = activeExercise.fields[i];
+    if (!input.value.trim() || !Number.isFinite(value)) return false;
+    if (field.min !== undefined) return value > field.min && value < field.max;
+    return Math.abs(value - field.answer) <= field.tolerance;
+  });
+  feedback.textContent = allCorrect ? 'ถูกต้อง!' : 'ผิด';
+  feedback.className = 'feedback show ' + (allCorrect ? 'correct' : 'wrong');
+});
+</script>
+
+</main><footer>สถิติ บทที่ 2 · การแจกแจงความถี่<br>เว็บไซต์บทเรียนที่เรียบเรียงจากไฟล์นำเสนอ พร้อมแบบฝึกหัดที่ 1–3</footer>
 </body></html>
